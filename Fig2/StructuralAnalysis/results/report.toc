@@ -1,0 +1,35 @@
+\contentsline {chapter}{\numberline {1}Tilings with a bimodal primitive cell}{3}
+\contentsline {section}{\numberline {1.1}Motivation}{3}
+\contentsline {section}{\numberline {1.2}Primitive cell geometry and index theorem}{3}
+\contentsline {chapter}{\numberline {2}An exotic vertex model}{5}
+\contentsline {section}{\numberline {2.1}Linearization of the geometric constraints}{5}
+\contentsline {section}{\numberline {2.2}Formulation of the vertex model}{6}
+\contentsline {section}{\numberline {2.3}Vertex configurations of fundamental mechanisms}{7}
+\contentsline {subsection}{\numberline {2.3.1}Local building blocks}{7}
+\contentsline {subsection}{\numberline {2.3.2}Global modes}{7}
+\contentsline {chapter}{\numberline {3}Tiling Zoology}{11}
+\contentsline {section}{\numberline {3.1}Periodic configurations}{11}
+\contentsline {subsection}{\numberline {3.1.1}(p1)}{11}
+\contentsline {subsection}{\numberline {3.1.2}Bump modes (p2)}{11}
+\contentsline {subsection}{\numberline {3.1.3}(pm)}{12}
+\contentsline {subsection}{\numberline {3.1.4}(cm:1)}{12}
+\contentsline {subsection}{\numberline {3.1.5}(cm:2)}{13}
+\contentsline {subsection}{\numberline {3.1.6}(cm:3)}{13}
+\contentsline {subsection}{\numberline {3.1.7}(cm:4)}{13}
+\contentsline {subsection}{\numberline {3.1.8}(p4m)}{14}
+\contentsline {subsection}{\numberline {3.1.9}Counter-rotations (pmg)}{14}
+\contentsline {subsection}{\numberline {3.1.10}(pmg:2)}{14}
+\contentsline {subsection}{\numberline {3.1.11}Linear decay modes (p4g)}{15}
+\contentsline {subsection}{\numberline {3.1.12}Bigger primitive cells}{15}
+\contentsline {section}{\numberline {3.2}Aperiodic configurations}{15}
+\contentsline {subsection}{\numberline {3.2.1}Random configurations}{15}
+\contentsline {subsection}{\numberline {3.2.2}Ordered aperiodic configurations}{15}
+\contentsline {chapter}{\numberline {4}Numerical and experimental validation}{16}
+\contentsline {section}{\numberline {4.1}Compatibility matrix}{16}
+\contentsline {section}{\numberline {4.2}Finite element simulations}{16}
+\contentsline {section}{\numberline {4.3}Elasticity experiments}{16}
+\contentsline {chapter}{\numberline {5}Concluding remarks}{21}
+\contentsline {chapter}{Appendices}{2}
+\contentsline {chapter}{\numberline {A}Linearized geometric constraints for triangular lattices}{3}
+\contentsline {chapter}{\numberline {B}Linearized geometric constraints for the inverted prismatic pentagon}{5}
+\contentsline {chapter}{\numberline {C}Basic states of self-stress}{6}
