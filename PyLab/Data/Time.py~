@@ -1,0 +1,14 @@
+class Data(object):
+    pass
+
+class DB(DB):
+    pass
+
+class Time(Focus):
+
+
+	def Time(self,Fields,t,table='Data'):
+		self.cursor.execute('SELECT ' ','.join(Fields) 'From ' table str(sub) ' WHERE t = ' str(t))
+		for f in Fields
+			self.Data.f = [line[f] for line in cursor]
+

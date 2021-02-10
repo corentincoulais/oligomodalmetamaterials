@@ -15,6 +15,8 @@ import os
 from matplotlib.patches import Ellipse
 from matplotlib.collections import PatchCollection
 import cv2
+import matplotlib as mpl
+import matplotlib.pyplot as plt
 
 mpl.rcParams['axes.labelsize'] = 24
 mpl.rcParams['xtick.labelsize'] =  24
@@ -67,69 +69,23 @@ import Multimode
 
 fig1=plt.figure(1,figsize=(10,10))
 ax1=fig1.add_axes([0.15,0.15,0.8,0.8])
+typeD="ellipses"
 
-for sub in [5]:#,4,5,6,9]:
+for sub,c,lab in zip([6,9],["b","r"],["counterrotations","lineardecay"]):    
     F=Multimode.Focus('20190620',sub)
     F.load()
-    #F.plot_ellipses_orderparam(ax1,1,0)
-    #ts=range(1,F.infos.tmax,1)
-    #t=50
-    Omega1=np.zeros(16)
-    Omega2=np.zeros(16)
-    for nx,ny in zip(range(1,17),range(1,17)):
-        F.extract_ellipses_orderparam(F.infos.tmax-1,nx,ny)
-        Omega1[nx-1]=F.Time.data.Omega*(-1)**(nx+ny)
-    for nx,ny in zip(range(1,17),range(16,0,-1)):
-        F.extract_ellipses_orderparam(F.infos.tmax-1,nx,ny)
-        Omega2[nx-1]=F.Time.data.Omega*(-1)**(nx+ny)
-
-ax1.plot(range(1,17),-Omega1,color="b",ls="--")
-ax1.plot(range(1,17),-Omega2,color="b")
-
-for sub in [3]:#,4,5,6,9]:
-    F=Multimode.Focus('20190620',sub)
-    F.load()
-    #F.plot_ellipses_orderparam(ax1,1,0)
-    #ts=range(1,F.infos.tmax,1)
-    #t=50
-    Omega1=np.zeros(16)
-    Omega2=np.zeros(16)
-    for nx,ny in zip(range(1,17),range(1,17)):
-        F.extract_ellipses_orderparam(F.infos.tmax-1,nx,ny)
-        Omega1[nx-1]=F.Time.data.Omega*(-1)**(nx+ny)
-    for nx,ny in zip(range(1,17),range(16,0,-1)):
-        F.extract_ellipses_orderparam(F.infos.tmax-1,nx,ny)
-        Omega2[nx-1]=F.Time.data.Omega*(-1)**(nx+ny)
-
-ax1.plot(range(1,17),-Omega1,color="r",ls="--")
-ax1.plot(range(1,17),-Omega2,color="r")
-
-for sub in [4]:#,4,5,6,9]:
-    F=Multimode.Focus('20190620',sub)
-    F.load()
-    #F.plot_ellipses_orderparam(ax1,1,0)
-    #ts=range(1,F.infos.tmax,1)
-    #t=50
-    Omega1=np.zeros(16)
-    Omega2=np.zeros(16)
-    for nx,ny in zip(range(1,17),range(1,17)):
-        F.extract_ellipses_orderparam(F.infos.tmax-1,nx,ny)
-        Omega1[nx-1]=F.Time.data.Omega*(-1)**(nx+ny)
-    for nx,ny in zip(range(1,17),range(16,0,-1)):
-        F.extract_ellipses_orderparam(F.infos.tmax-1,nx,ny)
-        Omega2[nx-1]=F.Time.data.Omega*(-1)**(nx+ny)
-
-ax1.plot(range(1,17),-Omega1,color="g",ls="--")
-ax1.plot(range(1,17),-Omega2,color="g")
-
-
-ax1.set_xlim(0,17)
-ax1.set_xticks(range(1,17))
-ax1.set_ylim(-0.5,0.5)
-ax1.set_yticks([-0.5,-0.25,0,0.25])
-
-ax1.set_xlabel(r"x position")
-ax1.set_ylabel(r"polarisation $P$")
-ax1.yaxis.set_label_coords(-0.1,0.5)
-
-fig1.savefig("/Users/coulais/science/Shared/Metacombinatorial/Paperdraft/draft_v2/Figs/Fig3/Omega_vs_position_quasi_2.pdf")
+    
+    fid=open("/Users/coulais/science/Shared/Metacombinatorial/Paperdraft/draft_v2/Figs/Fig3/corners_"+lab+"_"+typeD+".txt","w")
+    fid.write("frame;Xbottomleft;Ybottomleft;Xbottomright;Ybottomright;Xtopright;Ytopright;Xtopleft;Ytopleft;\n")
+    for t in range(F.infos.tmax-1):
+        fid.write("%d;" % t)        
+        for nx,ny in zip([2,15,15,2],[2,2,15,15]):
+            if typeD=="squares":
+                F.extract_strain(t,nx,ny)
+            elif typeD=="ellipses":
+                F.extract_ellipses_orderparam(t,nx,ny)
+            fid.write("%f;%f;" % (F.Time.data.X,F.Time.data.Y))
+        #fid.write("%d\t" % t)
+        fid.write("\n")
+    fid.close()
+        

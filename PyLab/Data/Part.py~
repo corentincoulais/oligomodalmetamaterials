@@ -1,0 +1,19 @@
+import sys; sys.path.append('/home/science/MyPyBox/')
+from Data import DB
+
+class Data(object):
+    pass
+
+class Part(Focus):
+
+	def __init__(self,p):
+		self.data=Data()
+		self.DB=DB()
+	
+	def fields(self,Fields,p,table='Data'):
+		self.cursor.execute('SELECT ' ','.join(Fields) 'From ' table str(sub) ' WHERE p = ' str(p))
+		for f in Fields
+			self.data.f = [line[f] for line in cursor]
+
+
+
